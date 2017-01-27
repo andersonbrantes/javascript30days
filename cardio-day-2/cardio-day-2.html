@@ -25,23 +25,20 @@
     ];
 
     // Some and Every Checks
-    // Array.prototype.some() // is at least one person 19 or older?
-    // Existem algum adulto?
-    const isAdult = people.some(function(person) {
+    var isAdult = function(person) {
       const currentYear = (new Date()).getFullYear();
 
       return currentYear - person.year >= 19;
-    });
-    console.log(isAdult);
+    };
+    // Array.prototype.some() // is at least one person 19 or older?
+    // Existem algum adulto?
+    const anyAdult = people.some(isAdult);
+    console.log('some ' + anyAdult);
 
     // Array.prototype.every() // is everyone 19 or older?
     // Todos são adultos?
-    const allAdults = people.every(function(person) {
-      const currentYear = (new Date()).getFullYear();
-
-      return currentYear - person.year >= 19;
-    });
-    console.log(allAdults);
+    const allAdults = people.every(isAdult);
+    console.log('every ' + allAdults);
 
     // Array.prototype.find()
     // Find is like filter, but instead returns just the one you are looking for
