@@ -47,7 +47,8 @@
 
   function populateList(plates = [], platesList) {
     platesList.innerHTML = plates.map((plate, i) => {
-        return "<li><label for=''>" + plate.text + "</li>";
+        var check = plate.done ? 'checked' : '';
+        return "<li><input type='checkbox' data-index="+i+" id='item"+i+"' "+ check +" /><label for='item"+i+"'>" + plate.text + "</li>";
     }).join('');
   }
 
