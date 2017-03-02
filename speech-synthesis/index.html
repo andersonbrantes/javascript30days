@@ -40,7 +40,11 @@
 
   function populateVoices() {
     voices = this.getVoices();
-    console.log(voices);
+    voicesDropDown.innerHTML = voices
+      .map(function(voice) {
+        return '<option value="'+voice.name+'">'+voice.name+' '+voice.lang+'</option>';
+      })
+      .join('');
   }
 
   speechSynthesis.addEventListener('voiceschanged', populateVoices);
