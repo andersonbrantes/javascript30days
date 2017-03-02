@@ -65,9 +65,19 @@
     }
   }
 
+
+  function setOption() {
+    console.log(this.name, this.value);
+    msg[this.name] = this.value;
+    toggle();
+  }
+
   speechSynthesis.addEventListener('voiceschanged', populateVoices);
 
   voicesDropDown.addEventListener('change', setVoice);
+  options.forEach(function(option) {
+    option.addEventListener('change', setOption);
+  });
 
 </script>
 
