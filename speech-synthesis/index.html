@@ -41,6 +41,7 @@
   function populateVoices() {
     voices = this.getVoices();
     voicesDropDown.innerHTML = voices
+      //.filter(voice => voice.lang.includes('pt'))
       .map(function(voice) {
         return '<option value="'+voice.name+'">'+voice.name+' '+voice.lang+'</option>';
       })
@@ -78,6 +79,9 @@
   options.forEach(function(option) {
     option.addEventListener('change', setOption);
   });
+
+  speakButton.addEventListener('click', toggle);
+  stopButton.addEventListener('click', () => toggle(false));
 
 </script>
 
